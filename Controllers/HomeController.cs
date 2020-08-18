@@ -22,7 +22,7 @@ namespace StudentSystemWeb.Controllers
             {
                 List<StudentData> students = new List<StudentData>();
                 HttpClient client = _api.Initial();
-                HttpResponseMessage res = await client.GetAsync("api/student");
+                HttpResponseMessage res = await client.GetAsync("api/students");
                 if (res.IsSuccessStatusCode)
                 {
                     var results = res.Content.ReadAsStringAsync().Result;
@@ -34,13 +34,14 @@ namespace StudentSystemWeb.Controllers
         #endregion
 
         #region Detail Section
+        [Authorize]
         public async Task<IActionResult> Details(int id)
         {
             using (StudentAPI _api = new StudentAPI())
             {
                 StudentData student = new StudentData();
                 HttpClient client = _api.Initial();
-                HttpResponseMessage res = await client.GetAsync($"api/student/{id}");
+                HttpResponseMessage res = await client.GetAsync($"api/students/{id}");
                 if (res.IsSuccessStatusCode)
                 {
                     var results = res.Content.ReadAsStringAsync().Result;
@@ -53,12 +54,13 @@ namespace StudentSystemWeb.Controllers
         #endregion
 
         #region Create Section
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Create(StudentData studentData)
         {
@@ -66,7 +68,7 @@ namespace StudentSystemWeb.Controllers
             {
                 HttpClient client = _api.Initial();
 
-                var postTask = client.PostAsJsonAsync<StudentData>("api/student", studentData);
+                var postTask = client.PostAsJsonAsync<StudentData>("api/students", studentData);
                 postTask.Wait();
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
@@ -80,7 +82,7 @@ namespace StudentSystemWeb.Controllers
         #endregion
 
         #region Edit Section
-
+        [Authorize]
         public ActionResult Edit(int id)
         {
             using (StudentAPI _api = new StudentAPI())
@@ -89,7 +91,7 @@ namespace StudentSystemWeb.Controllers
                 HttpClient client = _api.Initial();
 
                 //HTTP GET
-                var res = client.GetAsync($"api/student/{id}");
+                var res = client.GetAsync($"api/students/{id}");
                 res.Wait();
 
                 var result = res.Result;
@@ -103,7 +105,7 @@ namespace StudentSystemWeb.Controllers
                 return View(student);
             }
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult Edit(StudentData student)
         {
@@ -111,7 +113,7 @@ namespace StudentSystemWeb.Controllers
             {
                 HttpClient client = _api.Initial();
 
-                var putTask = client.PutAsJsonAsync<StudentData>($"/api/student/{student.Id}", student);
+                var putTask = client.PutAsJsonAsync<StudentData>($"/api/students/{student.Id}", student);
                 putTask.Wait();
 
                 var result = putTask.Result;
@@ -128,14 +130,14 @@ namespace StudentSystemWeb.Controllers
         #endregion
 
         #region Delete Section
-
+        [Authorize]
         public async Task<IActionResult> Delete(int Id)
         {
             using (StudentAPI _api = new StudentAPI())
             {
                 var studentData = new StudentData();
                 HttpClient client = _api.Initial();
-                HttpResponseMessage res = await client.DeleteAsync($"api/student/{Id}");
+                HttpResponseMessage res = await client.DeleteAsync($"api/students/{Id}");
                 return RedirectToAction("Index");
             }
         }
