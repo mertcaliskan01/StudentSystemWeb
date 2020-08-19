@@ -19,7 +19,7 @@ namespace StudentSystemWeb.Models
         [Required(ErrorMessage = "You must provide a phone number")]
         [Display(Name = "Phone")]
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "Not a valid phone number")]
+        [RegularExpression(@"\(?\d{3}\)?-? *\d{3}-? *-?\d{4}", ErrorMessage = "Not a valid phone number(Ex. (111) 111 1111, 111-111-1111, or 1111111111)")]
         public string Phone { get; set; }
         [Required]
         [MaxLength(100)]
