@@ -11,5 +11,6 @@ namespace StudentSystemWeb.Models
         public string Baslik { get; set; }
         public Boolean IsAnaBaslik { get; set; }
         public int AnaBaslikId { get; set; }
+        public string AltBaslikUrl { get; set; }
     }
 }

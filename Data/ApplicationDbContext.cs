@@ -15,7 +15,7 @@ namespace StudentSystemWeb.Data
         }
 
         public DbSet<Title> Titles { get; set; }
-        public DbSet<IssizlikOrani> IssizlikOranlari { get; set; }
+        public DbSet<IssizlikOrani> IssizlikOraniTablo1 { get; set; }
 
 
     }

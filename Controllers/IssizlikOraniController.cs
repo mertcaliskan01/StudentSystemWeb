@@ -10,22 +10,22 @@ using StudentSystemWeb.Models;
 
 namespace StudentSystemWeb.Controllers
 {
-    public class IssizlikOranisController : Controller
+    public class IssizlikOraniController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public IssizlikOranisController(ApplicationDbContext context)
+        public IssizlikOraniController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: IssizlikOranis
+        // GET: IssizlikOrani
         public async Task<IActionResult> Index()
         {
-            return View(await _context.IssizlikOranlari.ToListAsync());
+            return View(await _context.IssizlikOraniTablo1.ToListAsync());
         }
 
-        // GET: IssizlikOranis/Details/5
+        // GET: IssizlikOrani/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,7 +33,7 @@ namespace StudentSystemWeb.Controllers
                 return NotFound();
             }
 
-            var issizlikOrani = await _context.IssizlikOranlari
+            var issizlikOrani = await _context.IssizlikOraniTablo1
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (issizlikOrani == null)
             {
@@ -43,18 +43,18 @@ namespace StudentSystemWeb.Controllers
             return View(issizlikOrani);
         }
 
-        // GET: IssizlikOranis/Create
+        // GET: IssizlikOrani/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: IssizlikOranis/Create
+        // POST: IssizlikOrani/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Toplam1,Toplam2,Erkek1,Erkek2,Kadın1,Kadın2,ToplamOran1,ToplamOran2,ErkekOran1,ErkekOran2,KadınOran1,KadınOran2")] IssizlikOrani issizlikOrani)
+        public async Task<IActionResult> Create([Bind("Id,Toplam1,Toplam2,Erkek1,Erkek2,Kadın1,Kadın2,ToplamOran1,ToplamOran2,ErkekOran1,ErkekOran2,KadınOran1,KadınOran2,Aciklama")] IssizlikOrani issizlikOrani)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace StudentSystemWeb.Controllers
             return View(issizlikOrani);
         }
 
-        // GET: IssizlikOranis/Edit/5
+        // GET: IssizlikOrani/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace StudentSystemWeb.Controllers
                 return NotFound();
             }
 
-            var issizlikOrani = await _context.IssizlikOranlari.FindAsync(id);
+            var issizlikOrani = await _context.IssizlikOraniTablo1.FindAsync(id);
             if (issizlikOrani == null)
             {
                 return NotFound();
@@ -81,12 +81,12 @@ namespace StudentSystemWeb.Controllers
             return View(issizlikOrani);
         }
 
-        // POST: IssizlikOranis/Edit/5
+        // POST: IssizlikOrani/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Toplam1,Toplam2,Erkek1,Erkek2,Kadın1,Kadın2,ToplamOran1,ToplamOran2,ErkekOran1,ErkekOran2,KadınOran1,KadınOran2")] IssizlikOrani issizlikOrani)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Toplam1,Toplam2,Erkek1,Erkek2,Kadın1,Kadın2,ToplamOran1,ToplamOran2,ErkekOran1,ErkekOran2,KadınOran1,KadınOran2,Aciklama")] IssizlikOrani issizlikOrani)
         {
             if (id != issizlikOrani.Id)
             {
@@ -116,7 +116,7 @@ namespace StudentSystemWeb.Controllers
             return View(issizlikOrani);
         }
 
-        // GET: IssizlikOranis/Delete/5
+        // GET: IssizlikOrani/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,7 +124,7 @@ namespace StudentSystemWeb.Controllers
                 return NotFound();
             }
 
-            var issizlikOrani = await _context.IssizlikOranlari
+            var issizlikOrani = await _context.IssizlikOraniTablo1
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (issizlikOrani == null)
             {
@@ -134,20 +134,20 @@ namespace StudentSystemWeb.Controllers
             return View(issizlikOrani);
         }
 
-        // POST: IssizlikOranis/Delete/5
+        // POST: IssizlikOrani/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var issizlikOrani = await _context.IssizlikOranlari.FindAsync(id);
-            _context.IssizlikOranlari.Remove(issizlikOrani);
+            var issizlikOrani = await _context.IssizlikOraniTablo1.FindAsync(id);
+            _context.IssizlikOraniTablo1.Remove(issizlikOrani);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool IssizlikOraniExists(int id)
         {
-            return _context.IssizlikOranlari.Any(e => e.Id == id);
+            return _context.IssizlikOraniTablo1.Any(e => e.Id == id);
         }
     }
 }

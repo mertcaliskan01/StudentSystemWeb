@@ -1,0 +1,42 @@
+﻿@model IEnumerable<StudentSystemWeb.Models.Title>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Title</h4>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Baslik)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Baslik)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Download", "Download", new { id = item.Id }, new { @class = "btn btn-success btn-size" })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Tablo", "Details", new { url = item.AltBaslikUrl }, new { @class = "btn btn-success btn-size" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -24,10 +24,7 @@
                 @Html.DisplayFor(modelItem => item.Baslik)
             </td>
             <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Download</a>
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Ayrıntılı Bilgi Göster</a>
+                @Html.ActionLink("Ayrıntılı Bilgi Göster", "SubTitles", new { id = item.Id }, new { @class = "btn btn-success btn-size" })
             </td>
         </tr>
 }

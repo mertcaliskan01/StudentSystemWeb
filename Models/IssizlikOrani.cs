@@ -8,17 +8,18 @@ namespace StudentSystemWeb.Models
     public class IssizlikOrani
     {
         public int Id { get; set; }
-        public string Toplam1 { get; set; }
-        public string Toplam2 { get; set; }
-        public string Erkek1 { get; set; }
-        public string Erkek2 { get; set; }
-        public string Kadın1 { get; set; }
-        public string Kadın2 { get; set; }
-        public string ToplamOran1 { get; set; }
-        public string ToplamOran2 { get; set; }
-        public string ErkekOran1 { get; set; }
-        public string ErkekOran2 { get; set; }
-        public string KadınOran1 { get; set; }
-        public string KadınOran2 { get; set; }
+        public int Toplam1 { get; set; }
+        public int Toplam2 { get; set; }
+        public int Erkek1 { get; set; }
+        public int Erkek2 { get; set; }
+        public int Kadın1 { get; set; }
+        public int Kadın2 { get; set; }
+        public float ToplamOran1 { get; set; }
+        public float ToplamOran2 { get; set; }
+        public float ErkekOran1 { get; set; }
+        public float ErkekOran2 { get; set; }
+        public float KadınOran1 { get; set; }
+        public float KadınOran2 { get; set; }
+        public string Aciklama { get; set; }
     }
 }

@@ -1,41 +1,102 @@
-﻿@model IEnumerable<StudentSystemWeb.Models.Title>
+﻿@model IEnumerable<StudentSystemWeb.Models.IssizlikOrani>
+
 @{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Index";
 }
 
-<h1>Details</h1>
+<h1>Index</h1>
 
-<div>
-    <h4>Title</h4>
-    <hr />
-    <table class="table">
-        <thead>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Toplam1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Toplam2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Erkek1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Erkek2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kadın1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kadın2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToplamOran1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToplamOran2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErkekOran1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErkekOran2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KadınOran1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KadınOran2)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Baslik)
-                </th>
-                <th></th>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Toplam1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Toplam2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Erkek1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Erkek2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kadın1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kadın2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToplamOran1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToplamOran2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ErkekOran1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ErkekOran2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KadınOran1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KadınOran2)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Baslik)
-                    </td>
-                    <td>
-                        <a asp-action="Details" asp-route-id="@item.Id">Download</a>
-                    </td>
-                    <td>
-                        <a asp-action="Titles" asp-route-id="@item.Id">Ayrıntılı Bilgi Göster</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+        }
+    </tbody>
+</table>

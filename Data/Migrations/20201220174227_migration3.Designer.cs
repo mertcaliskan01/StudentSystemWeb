@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StudentSystemWeb.Data;
 
 namespace StudentSystemWeb.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201220174227_migration3")]
+    partial class migration3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,35 +192,33 @@ namespace StudentSystemWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Aciklama");
+                    b.Property<string>("Erkek1");
 
-                    b.Property<int>("Erkek1");
+                    b.Property<string>("Erkek2");
 
-                    b.Property<int>("Erkek2");
+                    b.Property<string>("ErkekOran1");
 
-                    b.Property<float>("ErkekOran1");
+                    b.Property<string>("ErkekOran2");
 
-                    b.Property<float>("ErkekOran2");
+                    b.Property<string>("Kadın1");
 
-                    b.Property<int>("Kadın1");
+                    b.Property<string>("Kadın2");
 
-                    b.Property<int>("Kadın2");
+                    b.Property<string>("KadınOran1");
 
-                    b.Property<float>("KadınOran1");
+                    b.Property<string>("KadınOran2");
 
-                    b.Property<float>("KadınOran2");
+                    b.Property<string>("Toplam1");
 
-                    b.Property<int>("Toplam1");
+                    b.Property<string>("Toplam2");
 
-                    b.Property<int>("Toplam2");
+                    b.Property<string>("ToplamOran1");
 
-                    b.Property<float>("ToplamOran1");
-
-                    b.Property<float>("ToplamOran2");
+                    b.Property<string>("ToplamOran2");
 
                     b.HasKey("Id");
 
-                    b.ToTable("IssizlikOraniTablo1");
+                    b.ToTable("IssizlikOranlari");
                 });
 
             modelBuilder.Entity("StudentSystemWeb.Models.Title", b =>
