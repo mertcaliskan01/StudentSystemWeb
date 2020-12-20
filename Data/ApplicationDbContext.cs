@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using StudentSystemWeb.Models;
 
 namespace StudentSystemWeb.Data
 {
@@ -12,5 +13,10 @@ namespace StudentSystemWeb.Data
             : base(options)
         {
         }
+
+        public DbSet<Title> Titles { get; set; }
+        public DbSet<IssizlikOrani> IssizlikOranlari { get; set; }
+
+
     }
 }

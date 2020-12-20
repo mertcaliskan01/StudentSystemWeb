@@ -70,7 +70,7 @@ namespace StudentSystemWeb
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Titles}/{action=Index}/{id?}");
             });
         }
     }
