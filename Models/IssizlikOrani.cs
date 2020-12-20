@@ -21,5 +21,6 @@ namespace StudentSystemWeb.Models
         public float KadınOran1 { get; set; }
         public float KadınOran2 { get; set; }
         public string Aciklama { get; set; }
+        public int TabloId { get; set; }
     }
 }

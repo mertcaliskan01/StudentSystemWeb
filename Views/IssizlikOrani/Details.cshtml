@@ -7,48 +7,59 @@
 
 <h1>Details</h1>
 
+<form asp-action="Details" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-default" /> |
+            <a asp-action="Details">Back to Full List</a>
+        </p>
+    </div>
+</form>
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Toplam1)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["Acıklama"]">Açıklama</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Toplam2)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["Toplam2019"]">Toplam 2019</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Erkek1)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["Toplam2020"]">Toplam 2020</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Erkek2)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["Erkek2019"]">Erkek 2019</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Kadın1)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["Erkek2020"]">Erkek 2020</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Kadın2)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["Kadın2019"]">Kadın 2019</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ToplamOran1)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["Kadın2020"]">Kadın 2020</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ToplamOran2)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["ToplamOran2019"]">Toplam Oran 2019</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ErkekOran1)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["ToplamOran2020"]">Toplam Oran 2020</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ErkekOran2)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["ErkekOran2019"]">Erkek Oran 2019</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KadınOran1)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["ErkekOran2020"]">Erkek Oran 2020</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.KadınOran2)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["KadınOran2019"]">Kadın Oran 2019</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Aciklama)
+                <a asp-action="Details" asp-route-sortOrder="@ViewData["KadınOran2020"]">Kadın Oran 2020</a>
             </th>
+
             <th></th>
         </tr>
     </thead>
@@ -56,6 +67,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aciklama)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Toplam1)
                 </td>
@@ -91,14 +105,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.KadınOran2)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Aciklama)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }
